@@ -1,7 +1,5 @@
 package com.leycarno.oop;
 
-import com.leycarno.oop.programms.*;
-
 import java.util.Scanner;
 
 public class Main {
@@ -12,8 +10,7 @@ public class Main {
         System.out.println("1. oop basics");
         System.out.println("2. rent a car");
         System.out.println("3. refuel and use my car");
-        System.out.println("4. refuel and use my car with mvc");
-        System.out.println("5. refuel and use my car endless with a menu");
+        System.out.println("3. HowTo Ausnahmebehandlung");
         System.out.println("Bitte die Zahl eingeben: ");
 
         int option = 0;
@@ -39,12 +36,8 @@ public class Main {
                 refuelCar.run();
                 break;
             case 4:
-                _4_RefuelCarMvc refuelCarMvc = new _4_RefuelCarMvc();
-                refuelCarMvc.run();
-                break;
-            case 5:
-                _5_RefuelCarMenu refuelCarMenu = new _5_RefuelCarMenu();
-                refuelCarMenu.run();
+                _4_Exceptions exceptions = new _4_Exceptions();
+                exceptions.run();
                 break;
             default:
                 System.err.println("Unbekanntes Programm!");

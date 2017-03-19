@@ -1,12 +1,12 @@
-package com.leycarno.oop.programms;
+package com.leycarno.collections.programms;
 
-import com.leycarno.oop.services.CarService;
-import com.leycarno.oop.services.PersonService;
-import com.leycarno.oop.models.Car;
-import com.leycarno.oop.models.Person;
-import com.leycarno.oop.views.SimpleView;
+import com.leycarno.collections.models.Car;
+import com.leycarno.collections.models.Person;
+import com.leycarno.collections.services.CarService;
+import com.leycarno.collections.services.PersonService;
+import com.leycarno.collections.views.StaticView;
 
-public class _5_RefuelCarMenu {
+public class _4_RefuelCarMvc {
 
     // ok for now - later we will use txt files for "i18n"
     private static final String TXT_START_MENU = "********************************************************************************"
@@ -29,8 +29,6 @@ public class _5_RefuelCarMenu {
     private CarService carService = new CarService();
     private PersonService personService = new PersonService();
 
-    private SimpleView view = new SimpleView();
-
     public void run() {
 
         // create a person and his car
@@ -43,10 +41,9 @@ public class _5_RefuelCarMenu {
 
         me.setCar(myCar);
 
-
         do {
-            view.displayMessage(TXT_START_MENU.replace("_MONEY_", "" + me.getMoney()));
-            switch (view.nextIntInput(TXT_INT_INPUT_ERROR)) {
+            StaticView.displayMessage(TXT_START_MENU.replace("_MONEY_", "" + me.getMoney()));
+            switch (StaticView.nextIntInput(TXT_INT_INPUT_ERROR)) {
                 case 1:
                     doActionRefuel(me, myCar);
                     break;
@@ -57,7 +54,7 @@ public class _5_RefuelCarMenu {
                     System.exit(0);
                     break;
                 default:
-                    view.displayError(TXT_UNKNOWN_ACTION);
+                    StaticView.displayError(TXT_UNKNOWN_ACTION);
             }
         } while (true);
     }
@@ -66,21 +63,21 @@ public class _5_RefuelCarMenu {
         // let's take a look at current fuel for correct price:
         float refuelPrice = (myCar.getFuelMax() - myCar.getFuel()) * fuelPricePerUnit;
         if (refuelPrice == 0) {
-            view.displayMessage(TXT_REFUEL_NOT_NECCASSARY.replace("_PRICE_", "" + refuelPrice));
+            StaticView.displayMessage(TXT_REFUEL_NOT_NECCASSARY.replace("_PRICE_", "" + refuelPrice));
         } else if (personService.pay(me, refuelPrice)) {
             carService.refuel(myCar, myCar.getFuelMax());
-            view.displayMessage(TXT_REFUEL_SUCCESS.replace("_PRICE_", "" + refuelPrice));
+            StaticView.displayMessage(TXT_REFUEL_SUCCESS.replace("_PRICE_", "" + refuelPrice));
         } else {
-            view.displayError(TXT_REFUEL_ERROR.replace("_PRICE_", "" + refuelPrice));
+            StaticView.displayError(TXT_REFUEL_ERROR.replace("_PRICE_", "" + refuelPrice));
         }
     }
 
     private void doActionUseFuel(Car myCar) {
         if (myCar.getFuel() == 0) {
-            view.displayError(TXT_USE_FUEL_ERROR);
+            StaticView.displayError(TXT_USE_FUEL_ERROR);
         } else {
             carService.useFuel(myCar, myCar.getFuel());
-            view.displayMessage(TXT_USE_FUEL_SUCCESS);
+            StaticView.displayMessage(TXT_USE_FUEL_SUCCESS);
         }
     }
 }

@@ -1,4 +1,4 @@
-package com.leycarno.oop.models;
+package com.leycarno.oop;
 
 public class Car {
 

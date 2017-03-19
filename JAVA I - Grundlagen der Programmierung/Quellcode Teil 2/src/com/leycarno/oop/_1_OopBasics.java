@@ -1,6 +1,4 @@
-package com.leycarno.oop.programms;
-
-import com.leycarno.oop.models.Car;
+package com.leycarno.oop;
 
 public class _1_OopBasics {
 

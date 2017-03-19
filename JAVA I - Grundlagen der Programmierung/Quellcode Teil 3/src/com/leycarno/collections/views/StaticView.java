@@ -1,24 +1,25 @@
-package com.leycarno.oop.views;
+package com.leycarno.collections.views;
 
 import java.util.Scanner;
 
-public class SimpleView {
+public class StaticView {
 
-    public void displayMessage(String message) {
+    public static void displayMessage(String message) {
         System.out.println(message);
     }
 
-    public void displayError(String errorMessage) {
+    public static void displayError(String errorMessage) {
         System.err.println(errorMessage);
     }
 
-    public int nextIntInput(String errorMessage) {
+    public static int nextIntInput(String errorMessage) {
         int selected;
+        Scanner scanner = new Scanner(System.in);
         try {
-            Scanner scanner = new Scanner(System.in);
             selected = scanner.nextInt();
         } catch (Throwable th) {
             System.err.println(errorMessage);
+            scanner.nextLine(); // error source...
             return nextIntInput(errorMessage);
         }
         return selected;

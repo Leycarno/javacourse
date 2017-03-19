@@ -1,6 +1,6 @@
-package com.leycarno.oop.services;
+package com.leycarno.collections.services;
 
-import com.leycarno.oop.models.Car;
+import com.leycarno.collections.models.Car;
 
 public class CarService {
 

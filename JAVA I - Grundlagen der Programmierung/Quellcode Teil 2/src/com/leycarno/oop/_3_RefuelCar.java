@@ -1,7 +1,4 @@
-package com.leycarno.oop.programms;
-
-import com.leycarno.oop.models.Car;
-import com.leycarno.oop.models.Person;
+package com.leycarno.oop;
 
 public class _3_RefuelCar {
 
