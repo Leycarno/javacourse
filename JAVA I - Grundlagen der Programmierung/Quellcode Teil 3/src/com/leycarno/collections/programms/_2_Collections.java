@@ -17,7 +17,7 @@ public class _2_Collections {
      * simple demo of the collection typ "list"
      */
     private void arrayListDemo() {
-        ArrayList list = new ArrayList();	            // init the list
+        ArrayList<Car> list = new ArrayList<>();          // init the list
         // *** BONUS: "static initialisation": ***
         Car myCar = new Car() {{ setType("Opel"); setFuelMax(45); setFuel(3); }};   // create a cars...
         list.add(myCar);    // ...and add to the list
@@ -40,7 +40,7 @@ public class _2_Collections {
      * simple demo of the collection typ "set"
      */
     private void hashSetDemo() {
-        HashSet set = new HashSet();	// init the set
+        HashSet<Car> set = new HashSet<>();	// init the set
         // *** BONUS: "static initialisation": ***
         Car myCar = new Car() {{ setType("Opel"); setFuelMax(45); setFuel(3); }};   // create a cars...
         set.add(myCar);    // ...and add to the list
