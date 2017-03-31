@@ -107,5 +107,6 @@ public class PersonService {
      */
     public static void putData(ArrayList<Person> peopleData) {
         people = peopleData;
+        nextId += people.size();
     }
 }

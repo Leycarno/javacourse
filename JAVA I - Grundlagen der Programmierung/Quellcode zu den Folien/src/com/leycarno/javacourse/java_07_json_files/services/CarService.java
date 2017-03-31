@@ -114,5 +114,6 @@ public class CarService {
      */
     public static void putData(ArrayList<Car> carsData) {
         cars = carsData;
+        nextId += cars.size();
     }
 }
