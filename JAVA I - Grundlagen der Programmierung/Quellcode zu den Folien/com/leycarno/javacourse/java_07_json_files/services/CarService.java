@@ -36,7 +36,7 @@ public class CarService {
      */
     public void giveBackCar(Person person) throws Exception {
         Car car = person.getCar();
-        if (car.isLeased()) throw new Exception("Dieses Person hat doch gar kein Auto!");
+        if (car == null) throw new Exception("Diese Person hat doch gar kein Auto!");
 
         car.setLeased(false);
         person.setCar(null);
