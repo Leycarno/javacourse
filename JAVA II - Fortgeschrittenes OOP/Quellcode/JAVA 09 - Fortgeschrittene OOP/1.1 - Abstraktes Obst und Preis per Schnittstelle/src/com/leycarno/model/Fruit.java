@@ -1,6 +1,6 @@
 package com.leycarno.model;
 
-public abstract class Fruit implements FruitPrice {
+public abstract class Fruit implements UnitPriceable {
 
     private FruitType fruitType = FruitType.Apple;
     private int amount;
@@ -17,6 +17,7 @@ public abstract class Fruit implements FruitPrice {
         this.amount = amount;
     }
 
+    @Override
     public int getAmount() {
         return amount;
     }

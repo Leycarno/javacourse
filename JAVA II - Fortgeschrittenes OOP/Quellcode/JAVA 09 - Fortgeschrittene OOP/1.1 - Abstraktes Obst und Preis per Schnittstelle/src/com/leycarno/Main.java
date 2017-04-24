@@ -3,7 +3,10 @@ package com.leycarno;
 import com.leycarno.controller.FruitController;
 import com.leycarno.model.Fruit;
 import com.leycarno.model.FruitType;
+import com.leycarno.model.UnitPriceable;
 
+import java.util.ArrayList;
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.Scanner;
 
@@ -85,6 +88,11 @@ public class Main {
                     + " zum Stückpreis " + fruit.getUnitPrice() + "€ - Summe: " + values.get(fruit.getFruitType()) + "€");
         }
 
-        System.out.println("Gesamtsumme: " + controller.getPriceSum());
+        // Leider kann man keine gesamte Collection casten, daher müssen die einzelnen Fruit-Objekte gecastet werden:
+        Collection<UnitPriceable> priceables = new ArrayList<>();
+        for (Fruit f: controller.getFruits().values()) priceables.add(f);
+
+        // Und Berechnung mit den gecasteten UnitPricables
+        System.out.println("Gesamtsumme: " + FruitController.getPriceSum(priceables) + "€");
     }
 }

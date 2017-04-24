@@ -1,6 +1,9 @@
 package com.leycarno.model;
 
-public interface FruitPrice {
+public interface UnitPriceable {
+
+    int getAmount();
 
     float getUnitPrice();
+
 }

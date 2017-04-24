@@ -2,6 +2,7 @@ package com.leycarno.controller;
 
 import com.leycarno.model.*;
 
+import java.util.Collection;
 import java.util.HashMap;
 
 public class FruitController {
@@ -29,7 +30,10 @@ public class FruitController {
         return amount + addAmount;
     }
 
-    // es macht keinen Sinn mehr, die values alleine auszugeben, daher Zugriff auf die Obst-Collection
+    /**
+     * es macht keinen Sinn mehr, die values alleine auszugeben, daher Zugriff auf die Obst-Collection
+     * @return
+     */
     public HashMap<FruitType, Fruit> getFruits() {
         return fruits;
     }
@@ -44,10 +48,16 @@ public class FruitController {
         return values;
     }
 
-    public float getPriceSum() {
+    /**
+     * Ein einfaches Beispiel um per Interface die Berechung vom Obst unabhängig zu nutzen
+     *
+     * @param priceables
+     * @return
+     */
+    public static float getPriceSum(Collection<UnitPriceable> priceables) {
         float sumPrice = 0;
-        for (float price : getStorageValues().values()) {
-            sumPrice += price;
+        for (UnitPriceable pa : priceables) {
+            sumPrice += pa.getAmount() * pa.getUnitPrice();
         }
         return (int) (sumPrice * 100) / 100f;
     }
